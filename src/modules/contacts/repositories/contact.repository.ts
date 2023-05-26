@@ -8,7 +8,7 @@ export abstract class ContactsRepository {
     userId: string,
   ): Promise<Contact> | Contact;
   abstract findOne(id: string): Promise<Contact> | Contact;
-  abstract findAll(): Promise<Contact[]> | Contact[];
+  abstract findAll(): Promise<Contact[] | object>;
   abstract update(
     id: string,
     data: UpdateContactDto,

@@ -6,10 +6,11 @@ export class User {
   name: string;
   email: string;
   phones_number: string;
+  user_image: string;
+  readonly createAt: Date;
 
   @Exclude()
   password: string;
-  createAt: Date;
 
   constructor() {
     this.id = randomUUID();
