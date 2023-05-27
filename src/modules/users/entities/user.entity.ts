@@ -7,7 +7,7 @@ export class User {
   email: string;
   phones_number: string;
   user_image: string;
-  readonly createAt: Date;
+  readonly createdAt: Date;
 
   @Exclude()
   password: string;
