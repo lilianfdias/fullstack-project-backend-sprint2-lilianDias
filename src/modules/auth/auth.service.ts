@@ -15,7 +15,7 @@ export class AuthService {
     if (user) {
       const passwordMatch = await compare(userPassword, user.password);
       if (passwordMatch) {
-        return { email: user.email };
+        return { email: user.email, id: user.id };
       }
     }
 
@@ -24,8 +24,9 @@ export class AuthService {
 
   async login(email: string) {
     const user = await this.userService.findByEmail(email);
+    const id = user.id;
     return {
-      token: this.jwtService.sign({ email }, { subject: user.id }),
+      token: this.jwtService.sign({ email, id }, { subject: user.id }),
     };
   }
 }
